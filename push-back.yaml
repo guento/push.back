@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: push-back-deployment
+  labels:
+    app: push-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: push-back
+  template:
+    metadata:
+      labels:
+        app: push-back
+    spec:
+      containers:
+      - name: push-back
+        image: push.back:v1.0.0
+        imagePullPolicy: Never
