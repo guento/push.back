@@ -53,6 +53,3 @@ fun Application.pushBack(testing: Boolean = false) {
         }
     }
 }
-
-
-
