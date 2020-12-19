@@ -1,8 +1,11 @@
 package com.go.pushback
 
-import io.ktor.http.*
-import kotlin.test.*
-import io.ktor.server.testing.*
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.withTestApplication
+import junit.framework.Assert.assertEquals
+import org.junit.Test
 
 class ApplicationTest {
     @Test
