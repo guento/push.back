@@ -36,17 +36,19 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.github.microutils:kotlin-logging-jvm:2.0.6"
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:$log4j2_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
-    implementation "ch.qos.logback:logback-classic:$logback_version"
+//    implementation "ch.qos.logback:logback-classic:$logback_version"
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-html-builder:$ktor_version"
-    implementation "org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41"
     implementation "io.ktor:ktor-thymeleaf:$ktor_version"
     implementation "io.ktor:ktor-metrics:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "io.ktor:ktor-client-core:$ktor_version"
     implementation "io.ktor:ktor-client-core-jvm:$ktor_version"
     implementation "io.ktor:ktor-client-logging-jvm:$ktor_version"
+    implementation "io.ktor:ktor-network-tls-certificates:$ktor_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
 }
 

@@ -2,6 +2,7 @@ package com.go.pushback
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.go.pushback.model.testData
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -13,11 +14,13 @@ import io.ktor.request.path
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.response.respondText
-import io.ktor.routing.get
-import io.ktor.routing.post
-import io.ktor.routing.route
-import io.ktor.routing.routing
+import io.ktor.routing.*
+import kotlinx.coroutines.launch
+import mu.KotlinLogging
 import org.slf4j.event.Level
+
+
+private val logger = KotlinLogging.logger {}
 
 @Suppress("unused") // Referenced in application.conf
 @JvmOverloads
@@ -36,13 +39,28 @@ fun Application.pushBack(testing: Boolean = false) {
     }
 
     routing {
+
+        logApplicationInfo()
+
         get("/") {
             call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
         }
 
         route("/push-back/v1") {
             get("/") {
+                logThread()
                 call.respond(mapOf("push" to "back"))
+                launch {
+                    logThread()
+                }
+            }
+
+            get("/settings/fcm") {
+                call.respond(testData())
+            }
+
+            get("/settings/hms") {
+                call.respond(testData())
             }
 
             post("/token") {
@@ -52,4 +70,12 @@ fun Application.pushBack(testing: Boolean = false) {
             }
         }
     }
+}
+
+fun logApplicationInfo(): Unit {
+    logger.info {  Runtime.version() }
+}
+
+fun logThread(): Unit {
+    logger.info { Thread.currentThread() }
 }

@@ -1,0 +1,26 @@
+###
+GET http://127.0.0.1:8080/
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/push-back/v1
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/push-back/v1/settings/fcm
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/push-back/v1/settings/hms
+Accept: application/json
+
+###
+POST http://127.0.0.1:8080/push-back/v1/token
+Content-Type: application/json
+
+{
+  "token": {
+    "value": "test-token"
+  }
+}
+
