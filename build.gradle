@@ -21,10 +21,12 @@ apply plugin: 'application'
 mainClassName = "com.go.pushback.ApplicationKt"
 
 sourceSets {
-    main.kotlin.srcDirs = main.java.srcDirs = ['src']
-    test.kotlin.srcDirs = test.java.srcDirs = ['test']
-    main.resources.srcDirs = ['resources']
-    test.resources.srcDirs = ['testresources']
+    main.kotlin.srcDirs = ['src/main/kotlin']
+    main.java.srcDirs = ['src/main/java']
+    main.resources.srcDirs = ['src/main/resources']
+    test.kotlin.srcDirs = ['src/test/kotlin']
+    test.java.srcDirs = ['src/test/java']
+    test.resources.srcDirs = ['src/test/resources']
 }
 
 repositories {

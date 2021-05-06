@@ -65,7 +65,7 @@ fun Application.pushBack(testing: Boolean = false) {
 
             post("/token") {
                 val request = call.receive<PushBackTokenPost>()
-                println("token = [${request.token.value}]")
+                logger.info { "token = [${request.token.value}]" }
                 call.respond(mapOf("token" to request.token))
             }
         }
@@ -77,5 +77,6 @@ fun logApplicationInfo(): Unit {
 }
 
 fun logThread(): Unit {
+    *-
     logger.info { Thread.currentThread() }
 }
